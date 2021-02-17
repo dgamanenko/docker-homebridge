@@ -1,0 +1,16 @@
+version: '2'
+services:
+  homebridge:
+    restart: always
+    image: dmtr/homebridge:latest
+    container_name: homebridge
+    restart: always
+    network_mode: host
+    environment:
+      - TZ=Europe/Kiev
+      - PGID=1000
+      - PUID=1000
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8080
+    volumes:
+      - ./homebridge-volume:/homebridge
